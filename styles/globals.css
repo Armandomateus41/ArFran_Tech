@@ -1,0 +1,28 @@
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap');
+:root {
+    --active-color: #547ec7; /* Azul do tema */
+    --text-color: #ffffff; /* Cor do texto */
+    --background-color: #121721; /* Cor do fundo */
+    --site-color: #405d99; /* Cor complementar */
+  }
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-color: #0c0f16;
+    font-family: 'Ubuntu', sans-serif;
+    color: #fff;
+}
+
+/* Utilitário de largura máxima */
+.max-width {
+    max-width: 1300px;
+    padding: 0 10px;
+    margin: auto;
+}

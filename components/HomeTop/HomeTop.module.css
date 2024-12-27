@@ -1,0 +1,108 @@
+/* Classe para o fundo com imagem */
+.imgTop {
+    background-image: url('/images/fundo_tecnologia_v11.jpg'); /* Caminho da imagem */
+    background-size: cover; /* Faz com que a imagem cubra todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+}
+
+/* Estilo geral para o banner principal */
+.content {
+    color: white; /* Cor do texto */
+    padding: 280px 20px; /* Aumentando o padding superior */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que o banner ocupe toda a altura da tela */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adicionando animação de entrada */
+.content[data-aos] {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.content[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease-in-out;
+}
+
+.maxWidth {
+    max-width: 1200px;
+    margin: auto; /* Centraliza horizontalmente */
+    z-index: 1; /* Garante que o texto fique acima do fundo */
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: flex-start; /* Alinha os elementos ao topo */
+    padding-right: 810px; /* Ajusta o espaço à direita */
+}
+
+/* Conteúdo do topo */
+.topContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha à esquerda */
+    margin-top: 50px; /* Ajuste para mover o conteúdo para baixo */
+}
+
+/* Estilo dos textos */
+.textOne {
+    font-size: 3rem; /* Aumenta o tamanho do texto */
+    font-weight: bold;
+    color: #547ec7; /* Cor de destaque */
+    animation: fadeIn 1s ease-in-out; /* Animação ao carregar */
+}
+
+.textTwo {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.textThree {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Botão de contato */
+.contactButton {
+    display: inline-block;
+    background-color: #547ec7; /* Cor de fundo do botão */
+    color: white;
+    padding: 15px 30px; /* Botão maior */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto maior no botão */
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(84, 126, 199, 0.4);
+}
+
+.contactButton:hover {
+    background-color: #405d99; /* Cor ao passar o mouse */
+    transform: scale(1.1); /* Pequeno zoom no botão */
+    box-shadow: 0 6px 20px rgba(84, 126, 199, 0.6);
+}
+
+.contactButton::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.contactButton:hover::after {
+    opacity: 1;
+    transform: scale(1.3);
+}

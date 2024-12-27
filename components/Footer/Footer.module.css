@@ -1,0 +1,106 @@
+/* Footer Principal */
+.footer {
+  background-color: #121721; /* Fundo escuro */
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* Títulos das Seções */
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #547ec7; /* Azul padrão */
+}
+
+/* Logo e Nome */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espaço entre o logo e o texto */
+  margin-bottom: 20px; /* Espaçamento abaixo do logo e texto */
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Para ajustar a imagem ao tamanho definido */
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #547ec7; /* Azul padrão */
+}
+
+/* Divisores */
+.divider {
+  border-top: 1px solid #1b202a;
+  margin: 20px auto;
+  width: 100%;
+}
+
+/* Listas */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.list li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.list li a:hover {
+  color: #547ec7;
+  text-decoration: underline;
+}
+
+/* Redes Sociais */
+.socials {
+  list-style: none;
+  padding: 0;
+}
+
+.socials li {
+  margin-bottom: 10px;
+}
+
+.socials li a {
+  color: #ffffff;
+  text-decoration: left;
+  font-size: 1rem;
+}
+
+.socials li a:hover {
+  color: #547ec7;
+  text-decoration: underline;
+}
+
+.socials i {
+  margin-right: 8px;
+}
+
+/* Copyright */
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
