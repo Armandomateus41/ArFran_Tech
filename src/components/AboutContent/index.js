@@ -1,41 +1,30 @@
-import styles from './AboutContent.module.css';
+import { useEffect, useState } from "react";
+import styles from "./AboutContent.module.css";
 
 const AboutContent = () => {
-  const content = [
-    {
-      text: "Desenvolvido para você atingir seus melhores índices de produtividade, criatividade e bem-estar.",
-      image: "/images/laptop.jpg",
-    },
-    {
-      text: "Sed laoreet cursus commodo. Quisque pharetra nisl vitae diam egestas lacinia.",
-      image: "/images/laptop.jpg",
-    },
-    {
-      text: "Integer at arcu ac turpis blandit ullamcorper at vitae diam. Donec quam est, aliquam non nisl non, feugiat suscipit eros.",
-      image: "/images/laptop.jpg",
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/about-companies")
+      .then((res) => res.json())
+      .then((response) => setData(response.aboutsCompanies))
+      .catch((error) => console.error("Erro ao carregar dados:", error));
+  }, []);
+
+  if (!data.length) return <p>Carregando informações...</p>;
 
   return (
     <section className={styles.about}>
       <div className={styles.maxWidth}>
-        <h2 className={styles.title}>Sobre Empresa</h2>
-        {content.map((item, index) => (
-          <div key={index} className={styles.aboutContent}>
+        <h2 className={styles.title}>Sobre a Empresa</h2>
+        {data.map((item) => (
+          <div key={item.id} className={styles.aboutContent}>
             <div className={styles.columnLeft}>
-              <img src={item.image} alt="Sobre Empresa" />
+              <img src={item.image} alt={item.title} />
             </div>
             <div className={styles.columnRight}>
-              <div className={styles.text}>{item.text}</div>
-              <p>
-                Sed laoreet cursus commodo. Quisque pharetra nisl vitae diam
-                egestas lacinia. Integer at arcu ac turpis blandit ullamcorper
-                at vitae diam. Donec quam est, aliquam non nisl non, feugiat
-                suscipit eros. Pellentesque condimentum est quam, auctor
-                faucibus velit euismod eget. Nam a diam sed metus molestie
-                tincidunt. Quisque et aliquet risus. Sed et sem quis massa
-                sagittis feugiat at sed risus. Sed semper tortor elit.
-              </p>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
             </div>
           </div>
         ))}
