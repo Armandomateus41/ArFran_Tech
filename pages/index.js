@@ -8,9 +8,33 @@ import ContentSlider from "@/components/ContentSlider";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import News from "@/components/News/News";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 function Home() {
+  const getHome = async () => {
+    await axios.get("http://localhost:8080/home") // substituir com a URL da API
+    .then((response) => { // Acessa o then quando a API retornou com sucesso
+       // Tratar os dados da resposta
+       console.log(response.data);
+ 
+    }).catch((error) =>{ // Acessa o catch quando a API retornou com erro
+      if(error.response) {
+        console.log(error.response.data.message);
+      }else{
+        console.log("Error  Tente mais tarde. Tente novamente. ");
+      }
+ 
+    });
+  }
+  // useEffect e usado para lidar com efeitos colaterais e um componente. por exemplo, para carregar dados de um API
+  // do componenten, fazer chamadas a API e manipular os dados.
+
+  useEffect(() => {
+   // Chamar a função com requisição à API
+   getHome();
+  }, []);
   return (
     <>
       <Head>

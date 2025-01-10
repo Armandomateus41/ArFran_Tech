@@ -25,3 +25,6 @@ O Node.js ou as dependências do projeto não foram configuradas corretamente.
 ### node -v
 ### npm install next react react-dom
 "# site_arfran_tech" 
+
+tegrar site com a API utilizando Axios
+### npm install axios

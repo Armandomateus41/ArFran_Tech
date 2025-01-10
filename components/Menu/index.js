@@ -31,12 +31,12 @@ function Menu() {
             </Link>
           </li>
           <li onClick={closeMenu}>
-            <Link href="/sobre-empresa" legacyBehavior>
+            <Link href="https//linkedin.com/in/armandocapita/" legacyBehavior>
               <a className={styles.menuBtn}>Sobre Empresa</a>
             </Link>
           </li>
           <li onClick={closeMenu}>
-            <Link href="/arfrantech/src/pages/contact.js" legacyBehavior>
+            <Link href="#" legacyBehavior>
               <a className={styles.menuBtn}>Contato</a>
             </Link>
           </li>
@@ -49,7 +49,7 @@ function Menu() {
 
         {/* Redes Sociais e Botão */}
         <div className={styles.socialIcons}>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className={styles.icon}>
+          <a href="https//linkedin.com/in/armandocapita/" target="_blank" rel="noreferrer" className={styles.icon}>
             <i className="fab fa-linkedin"></i>
           </a>
           <a href="https://instagram.com" target="_blank" rel="noreferrer" className={styles.icon}>

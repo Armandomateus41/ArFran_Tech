@@ -1,0 +1,42 @@
+.contentSection {
+    background-color: #01131d;
+    padding: 80px 80px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .slider {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .slideItem {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .image {
+    width: 100%;
+    max-width: 4200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 10px auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  }
+  
+  .itemTitle {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-top: 10px;
+  }
+  

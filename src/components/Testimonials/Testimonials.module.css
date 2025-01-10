@@ -1,0 +1,72 @@
+/* Seção Geral */
+.testimonials {
+    background-color: #1b202a;
+    padding: 60px 20px;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .maxWidth {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Título */
+  .title {
+    font-size: 2rem;
+    color: #547ec7;
+    margin-bottom: 40px;
+  }
+  
+  /* Container de Cards */
+  .cardsContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Card */
+  .card {
+    background-color: #121721;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Imagem do Cliente */
+  .image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  /* Citação */
+  .quote {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 15px;
+  }
+  
+  /* Informações do Cliente */
+  .clientInfo .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .clientInfo .role {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  

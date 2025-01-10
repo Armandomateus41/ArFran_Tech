@@ -1,6 +1,15 @@
 import Head from "next/head";
-import Menu from "@/components/index";
-import styles from "@/components/Menu/Menu.module.css";
+import Menu from "@/components/Menu";
+import HomeTop from "@/components/HomeTop";
+import HomePrem from "@/components/HomePrem";
+import HomeServ from "@/components/HomeServ";
+import Professionals from "@/components/Professionals/Professionals";
+import ContentSlider from "@/components/ContentSlider";
+import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials/Testimonials";
+import News from "@/components/News/News";
+
+
 function Home() {
   return (
     <>
@@ -13,10 +22,18 @@ function Home() {
         <meta property="og:title" content="Home - Ar FranTech" />
       </Head>
       <main>
-        <Menu />
-        <h1>Seja bem vindo Ar FranTech!</h1>
+      <Menu />
+      <HomeTop />
+      <HomePrem />
+      <HomeServ />
+      <Testimonials />
+      <News />
+      <Professionals />
+      <ContentSlider />
+      <Footer />
       </main>
     </>
   );
 }
+
 export default Home;
