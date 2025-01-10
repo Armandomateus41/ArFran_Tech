@@ -4,23 +4,18 @@ import "aos/dist/aos.css";
 import styles from "@/components/HomeServ/HomeServ.module.css";
 
 const HomeServ = () => {
-  // Inicializa o AOS
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Duração da animação em ms
-      easing: "ease-in-out", // Estilo de animação
-      once: true, // Executa a animação apenas uma vez
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
     });
   }, []);
 
   return (
-    <>
-      {/* Seção de Serviços */}
-      <section className={styles.services}>
+    <section className={styles.services}>
       <div className={styles.maxWidth}>
-        <h2 className={styles.title} data-aos="fade-up">
-          Serviços
-        </h2>
+        <h2 className={styles.title} data-aos="fade-up">Serviços</h2>
         <div className={styles.servContent}>
           <div className={styles.card} data-aos="fade-right">
             <div className={styles.box}>
@@ -61,7 +56,6 @@ const HomeServ = () => {
         </div>
       </div>
     </section>
-    </>
   );
 };
 

@@ -1,64 +1,96 @@
-import styles from '@/components/ContactContent/ContactContent.module.css';
+import { useState } from "react";
+import styles from "@/components/ContactContent/ContactContent.module.css";
 
 const ContactContent = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:8080/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Mensagem enviada com sucesso!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("Erro ao enviar mensagem. Tente novamente.");
+      }
+    } catch (error) {
+      setStatus("Erro ao enviar mensagem. Verifique sua conexão.");
+    }
+  };
+
   return (
     <div className={styles.container}>
-      {/* Informações da Empresa */}
-      <div className={`${styles.column} ${styles.left}`}>
+      <div className={styles.left}>
+        <h3>Fale Conosco</h3>
         <p>
-          Sed laoreet cursus commodo. Quisque pharetra nisl vitae diam egestas lacinia. Integer at arcu ac turpis blandit ullamcorper at vitae diam. Donec quam est, aliquam non nisl non, feugiat suscipit eros. Pellentesque condimentum est quam, auctor faucibus velit euismod eget.
+          Entre em contato para mais informações sobre nossos serviços. Estamos
+          aqui para ajudar!
         </p>
-        <div className={styles.icons}>
-          <div className={styles.row}>
-            <i className="fas fa-user"></i>
-            <div className={styles.info}>
-              <div className={styles.head}>Empresa</div>
-              <div className={styles.subTitle}>Armando</div>
-            </div>
-          </div>
-          <div className={styles.row}>
-            <i className="fas fa-map-marked-alt"></i>
-            <div className={styles.info}>
-              <div className={styles.head}>Endereço</div>
-              <div className={styles.subTitle}>Avenida Belenzinho</div>
-            </div>
-          </div>
-          <div className={styles.row}>
-            <i className="fas fa-envelope"></i>
-            <div className={styles.info}>
-              <div className={styles.head}>Email</div>
-              <div className={styles.subTitle}>contato@armandomateus.com</div>
-            </div>
-          </div>
-        </div>
       </div>
-
-      {/* Formulário de Contato */}
-      <div className={`${styles.column} ${styles.right}`}>
-        <div className={styles.text}>Mensagem de Contato</div>
-        <form className={styles.form}>
-          <div className={styles.fields}>
-            <div className={styles.field}>
-              <label htmlFor="name">Nome</label>
-              <input type="text" id="name" name="name" placeholder="Digite seu nome" required />
-            </div>
-            <div className={styles.field}>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Digite seu email" required />
-            </div>
-            <div className={styles.field}>
-              <label htmlFor="subject">Assunto</label>
-              <input type="text" id="subject" name="subject" placeholder="Escreva o assunto" required />
-            </div>
-            <div className={`${styles.field} ${styles.textarea}`}>
-              <label htmlFor="message">Mensagem</label>
-              <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem" required></textarea>
-            </div>
+      <div className={styles.right}>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.field}>
+            <label htmlFor="name">Nome:</label>
+            <input
+              type="text"
+              id="name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+            />
           </div>
-          <div className={styles.button}>
-            <button type="submit">Enviar</button>
+          <div className={styles.field}>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+            />
           </div>
+          <div className={styles.field}>
+            <label htmlFor="subject">Assunto:</label>
+            <input
+              type="text"
+              id="subject"
+              value={formData.subject}
+              onChange={(e) =>
+                setFormData({ ...formData, subject: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div className={styles.field}>
+            <label htmlFor="message">Mensagem:</label>
+            <textarea
+              id="message"
+              rows="4"
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+              required
+            />
+          </div>
+          <button type="submit">Enviar</button>
         </form>
+        {status && <p className={styles.status}>{status}</p>}
       </div>
     </div>
   );
