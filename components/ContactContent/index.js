@@ -12,9 +12,10 @@ const ContactContent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("Enviando...");
 
     try {
-      const response = await fetch("http://localhost:8080/contact", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,63 +36,59 @@ const ContactContent = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <h3>Fale Conosco</h3>
-        <p>
-          Entre em contato para mais informações sobre nossos serviços. Estamos
-          aqui para ajudar!
-        </p>
-      </div>
-      <div className={styles.right}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.field}>
-            <label htmlFor="name">Nome:</label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              required
-            />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-            />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="subject">Assunto:</label>
-            <input
-              type="text"
-              id="subject"
-              value={formData.subject}
-              onChange={(e) =>
-                setFormData({ ...formData, subject: e.target.value })
-              }
-              required
-            />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="message">Mensagem:</label>
-            <textarea
-              id="message"
-              rows="4"
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-              required
-            />
-          </div>
-          <button type="submit">Enviar</button>
-        </form>
-        {status && <p className={styles.status}>{status}</p>}
-      </div>
+      <h2>Entre em Contato</h2>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.field}>
+          <label htmlFor="name">Nome:</label>
+          <input
+            type="text"
+            id="name"
+            className={styles.input}
+            placeholder="Digite seu nome"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            required
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            className={styles.input}
+            placeholder="Digite seu email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="subject">Assunto:</label>
+          <input
+            type="text"
+            id="subject"
+            className={styles.input}
+            placeholder="Assunto da mensagem"
+            value={formData.subject}
+            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+            required
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="message">Mensagem:</label>
+          <textarea
+            id="message"
+            rows="5"
+            className={styles.textarea}
+            placeholder="Escreva sua mensagem aqui..."
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            required
+          />
+        </div>
+        <button type="submit" className={styles.button}>Enviar</button>
+      </form>
+      {status && <p className={styles.status}>{status}</p>}
     </div>
   );
 };

@@ -5,7 +5,7 @@ const AboutContent = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/about-companies")
+    fetch("http://localhost:3000/about-companies")
       .then((res) => res.json())
       .then((response) => setData(response.aboutsCompanies))
       .catch((error) => console.error("Erro ao carregar dados:", error));

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Menu from "@/components/Menu/index"; // Certifique-se de que o caminho está correto
 import AboutContent from '@/components/AboutContent';
 
-function Contact() {
+function About() {
   return (
     <>
       <Head>
@@ -22,4 +22,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default About;

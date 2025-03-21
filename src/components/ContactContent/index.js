@@ -14,7 +14,7 @@ const ContactContent = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/contact", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,12 +43,13 @@ const ContactContent = () => {
         </p>
       </div>
       <div className={styles.right}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.field}>
             <label htmlFor="name">Nome:</label>
             <input
               type="text"
               id="name"
+              className={styles.input}
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
@@ -59,6 +60,7 @@ const ContactContent = () => {
             <input
               type="email"
               id="email"
+              className={styles.input}
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
@@ -69,6 +71,7 @@ const ContactContent = () => {
             <input
               type="text"
               id="subject"
+              className={styles.input}
               value={formData.subject}
               onChange={(e) =>
                 setFormData({ ...formData, subject: e.target.value })
@@ -81,6 +84,7 @@ const ContactContent = () => {
             <textarea
               id="message"
               rows="4"
+              className={styles.textarea}
               value={formData.message}
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
@@ -88,7 +92,7 @@ const ContactContent = () => {
               required
             />
           </div>
-          <button type="submit">Enviar</button>
+          <button type="submit" className={styles.button}>Enviar</button>
         </form>
         {status && <p className={styles.status}>{status}</p>}
       </div>

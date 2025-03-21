@@ -7,7 +7,7 @@ function Contact() {
   return (
     <>
       <Head>
-        <title>Home - ArFran Tech</title>
+        <title>Contato - ArFran Tech</title>
         <meta
           name="description"
           content="Ar FranTech - A empresa líder em tecnologia e inovação."
